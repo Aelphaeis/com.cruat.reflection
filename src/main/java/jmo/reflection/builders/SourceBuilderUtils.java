@@ -79,10 +79,6 @@ final class SourceBuilderUtils {
 		return null;
 	}
 
-	public static String buildFieldModifiers(JField f) {
-		return Modifier.toString(f.getModifiers());
-	}
-
 	public static String buildPackage(JClass<?> type) {
 		return SourceTemplates.PACKAGE.format(type.getPackage().getName());
 	}

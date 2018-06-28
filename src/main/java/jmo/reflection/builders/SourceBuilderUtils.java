@@ -28,7 +28,7 @@ final class SourceBuilderUtils {
 		}
 	}
 
-	public String buildConstruct(JClass<?> type) {
+	public static String buildConstruct(JClass<?> type) {
 		if (type.isEnum()) {
 			return SourceTemplates.CLASS_MODIFIER.format("enum");
 		} else if (type.isInterface()) {

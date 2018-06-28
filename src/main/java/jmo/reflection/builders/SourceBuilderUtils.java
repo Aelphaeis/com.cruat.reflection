@@ -41,8 +41,12 @@ final class SourceBuilderUtils {
 		}
 	}
 
-	public static String buildClassModifiers(JClass<?> type) {
-		String result = Modifier.toString(type.getModifiers());
+	public static String buildModifiers(JClass<?> type) {
+		return buildModifiers(type.getModifiers());
+	}
+	
+	private static String buildModifiers(int mods) {
+		String result = Modifier.toString(mods);
 		return result.equals("")? result : result + " ";
 	}
 

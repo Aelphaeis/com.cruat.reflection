@@ -31,7 +31,7 @@ public class SourceBuilder {
 		StringBuilder builder = new StringBuilder();
 		builder.append(buildPackage(cls));
 		builder.append(buildImports(cls));
-		builder.append(buildClassModifiers(cls));
+		builder.append(buildModifiers(cls));
 		builder.append(buildConstruct(cls));
 		builder.append(buildName(cls));
 		return builder.toString();

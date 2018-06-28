@@ -9,14 +9,13 @@ import jmo.reflection.core.JClass;
 import jmo.reflection.core.SourceTemplates;
 
 final class SourceBuilderUtils {
-	
-	
+
 	private static final String TEMP_LOC = "src/main/resources/template.txt";
 	public static String getTemplate() {
 		try {
 			return new String(Files.readAllBytes(Paths.get(TEMP_LOC)));
 		} catch (IOException e) {
-			//should never happen.
+			// should never happen.
 			throw new IllegalStateException(e);
 		}
 	}
@@ -32,7 +31,7 @@ final class SourceBuilderUtils {
 			return SourceTemplates.CLASS_MODIFIER.format("class");
 		}
 	}
-	
+
 	public static String buildClassModifiers(JClass<?> type) {
 		int mods = type.getModifiers();
 		StringBuilder builder = new StringBuilder();
@@ -53,8 +52,6 @@ final class SourceBuilderUtils {
 		}
 		return builder.toString();
 	}
-	
-	
 
 	private SourceBuilderUtils() {
 		// utility

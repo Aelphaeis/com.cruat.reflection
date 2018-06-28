@@ -77,17 +77,16 @@ final class SourceBuilderUtils {
 
 	public static String buildInstanceFields(JClass<?> type) {
 		StringBuilder builder = new StringBuilder();
-		for (Field field : type.getDeclaredFields()) {
+		LinkedHashSet<Field> fields = new LinkedHashSet<>();
+		fields.addAll(Arrays.asList(type.getFields()));
+		fields.addAll(Arrays.asList(type.getDeclaredFields()));
+		
+		for (Field field : fields) {
 			JField jfield = new JFieldAdaptor(field);
 			builder.append(buildInstanceField(jfield));
 			builder.append("\n");
 		}
 
-		for (Field field : type.getFields()) {
-			JField jfield = new JFieldAdaptor(field);
-			builder.append(buildInstanceField(jfield));
-			builder.append("\n");
-		}
 		return builder.toString();
 	}
 	public static String buildInstanceField(JField f) {

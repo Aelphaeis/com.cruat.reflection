@@ -61,7 +61,7 @@ final class SourceBuilderUtils {
 		return builder.toString();
 	}
 
-	public static String buildImports(Class<?> type) {
+	public static String buildImports(JClass<?> type) {
 		Method[] methods = type.getMethods();
 		Set<Class<?>> imports = new LinkedHashSet<>();
 		for (Method m : methods) {
@@ -85,7 +85,7 @@ final class SourceBuilderUtils {
 		return builder.toString();
 	}
 	
-	public static String buildPackage(Class<?> type) {
+	public static String buildPackage(JClass<?> type) {
 		return SourceTemplates.PACKAGE.format(type.getPackage().getName());
 	}
 

@@ -36,8 +36,6 @@ public class SourceBuilder {
 		builder.append(buildName(cls));
 		return builder.toString();
 	}
-	
-	
 
 	@Override
 	public String toString() {

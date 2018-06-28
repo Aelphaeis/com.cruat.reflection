@@ -13,11 +13,11 @@ import java.security.ProtectionDomain;
 
 import jmo.reflection.exceptions.ReflectionRuntimeException;
 
-public class JClassDecorator<T> implements JClass<T> {
+public class JClassAdaptor<T> implements JClass<T> {
 
 	final Class<T> cls;
 
-	public JClassDecorator(Class<T> cls) {
+	public JClassAdaptor(Class<T> cls) {
 		this.cls = cls;
 	}
 

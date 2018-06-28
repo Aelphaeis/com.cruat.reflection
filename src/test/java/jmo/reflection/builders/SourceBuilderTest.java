@@ -3,13 +3,13 @@ package jmo.reflection.builders;
 import org.junit.Test;
 
 import jmo.reflection.core.JClass;
-import jmo.reflection.core.JClassDecorator;
+import jmo.reflection.core.JClassAdaptor;
 
 public class SourceBuilderTest {
 
 	@Test
 	public void test() {
-		JClass<SourceBuilder> cls = new JClassDecorator<>(SourceBuilder.class);
+		JClass<SourceBuilder> cls = new JClassAdaptor<>(SourceBuilder.class);
 		System.out.println(new SourceBuilder(cls));
 	}
 	@Test(expected = NullPointerException.class)

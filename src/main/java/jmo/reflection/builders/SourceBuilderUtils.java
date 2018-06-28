@@ -42,24 +42,8 @@ final class SourceBuilderUtils {
 	}
 
 	public static String buildClassModifiers(JClass<?> type) {
-		int mods = type.getModifiers();
-		StringBuilder builder = new StringBuilder();
-		if (Modifier.isPublic(mods)) {
-			builder.append(SourceTemplates.CLASS_MODIFIER.format("public"));
-		} else if (Modifier.isProtected(mods)) {
-			builder.append(SourceTemplates.CLASS_MODIFIER.format("protected"));
-		}
-
-		if (Modifier.isAbstract(mods)) {
-			builder.append(SourceTemplates.CLASS_MODIFIER.format("abstract"));
-		} else if (Modifier.isFinal(mods)) {
-			builder.append(SourceTemplates.CLASS_MODIFIER.format("final"));
-		}
-
-		if (Modifier.isStrict(mods)) {
-			builder.append(SourceTemplates.CLASS_MODIFIER.format("strictfp"));
-		}
-		return builder.toString();
+		String result = Modifier.toString(type.getModifiers());
+		return result.equals("")? result : result + " ";
 	}
 
 	public static String buildImports(JClass<?> type) {

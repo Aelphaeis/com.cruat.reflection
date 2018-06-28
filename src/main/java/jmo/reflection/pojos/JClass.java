@@ -116,19 +116,19 @@ public class JClass<T> {
 		return cls.getSigners();
 	}
 
-	public Method getEnclosingMethod() throws SecurityException {
+	public Method getEnclosingMethod() {
 		return cls.getEnclosingMethod();
 	}
 
-	public Constructor<?> getEnclosingConstructor() throws SecurityException {
+	public Constructor<?> getEnclosingConstructor() {
 		return cls.getEnclosingConstructor();
 	}
 
-	public Class<?> getDeclaringClass() throws SecurityException {
+	public Class<?> getDeclaringClass() {
 		return cls.getDeclaringClass();
 	}
 
-	public Class<?> getEnclosingClass() throws SecurityException {
+	public Class<?> getEnclosingClass() {
 		return cls.getEnclosingClass();
 	}
 
@@ -160,61 +160,61 @@ public class JClass<T> {
 		return cls.getClasses();
 	}
 
-	public Field[] getFields() throws SecurityException {
+	public Field[] getFields() {
 		return cls.getFields();
 	}
 
-	public Method[] getMethods() throws SecurityException {
+	public Method[] getMethods(){
 		return cls.getMethods();
 	}
 
-	public Constructor<?>[] getConstructors() throws SecurityException {
+	public Constructor<?>[] getConstructors(){
 		return cls.getConstructors();
 	}
 
 	public Field getField(String name)
-			throws NoSuchFieldException, SecurityException {
+			throws NoSuchFieldException {
 		return cls.getField(name);
 	}
 
 	public Method getMethod(String name, Class<?>... parameterTypes)
-			throws NoSuchMethodException, SecurityException {
+			throws NoSuchMethodException {
 		return cls.getMethod(name, parameterTypes);
 	}
 
 	public Constructor<T> getConstructor(Class<?>... parameterTypes)
-			throws NoSuchMethodException, SecurityException {
+			throws NoSuchMethodException {
 		return cls.getConstructor(parameterTypes);
 	}
 
-	public Class<?>[] getDeclaredClasses() throws SecurityException {
+	public Class<?>[] getDeclaredClasses() {
 		return cls.getDeclaredClasses();
 	}
 
-	public Field[] getDeclaredFields() throws SecurityException {
+	public Field[] getDeclaredFields() {
 		return cls.getDeclaredFields();
 	}
 
-	public Method[] getDeclaredMethods() throws SecurityException {
+	public Method[] getDeclaredMethods() {
 		return cls.getDeclaredMethods();
 	}
 
-	public Constructor<?>[] getDeclaredConstructors() throws SecurityException {
+	public Constructor<?>[] getDeclaredConstructors() {
 		return cls.getDeclaredConstructors();
 	}
 
 	public Field getDeclaredField(String name)
-			throws NoSuchFieldException, SecurityException {
+			throws NoSuchFieldException {
 		return cls.getDeclaredField(name);
 	}
 
 	public Method getDeclaredMethod(String name, Class<?>... parameterTypes)
-			throws NoSuchMethodException, SecurityException {
+			throws NoSuchMethodException {
 		return cls.getDeclaredMethod(name, parameterTypes);
 	}
 
 	public Constructor<T> getDeclaredConstructor(Class<?>... parameterTypes)
-			throws NoSuchMethodException, SecurityException {
+			throws NoSuchMethodException {
 		return cls.getDeclaredConstructor(parameterTypes);
 	}
 

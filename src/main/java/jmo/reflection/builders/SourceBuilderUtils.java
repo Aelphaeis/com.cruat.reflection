@@ -19,16 +19,6 @@ final class SourceBuilderUtils {
 	public static final Package PRIMATIVE_PKG = double.class.getPackage();
 	public static final Package LANG_PKG = String.class.getPackage();
 
-	private static final String TEMP_LOC = "src/main/resources/template.txt";
-
-	public static String getTemplate() {
-		try {
-			return new String(Files.readAllBytes(Paths.get(TEMP_LOC)));
-		} catch (IOException e) {
-			// should never happen.
-			throw new IllegalStateException(e);
-		}
-	}
 
 	public static String buildConstruct(JClass<?> type) {
 		if (type.isEnum()) {

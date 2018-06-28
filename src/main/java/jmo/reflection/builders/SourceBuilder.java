@@ -18,7 +18,6 @@ public class SourceBuilder {
 	public static final String I_FIELDS = "{{i-fields}}";
 	public static final String CTORS = "{{ctors}}";
 	public static final String METHODS = "{{methods}}";
-	public static final String TEMPLATE = getTemplate();
 
 	final JClass<?> cls;
 

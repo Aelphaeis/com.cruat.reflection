@@ -1,7 +1,6 @@
 package jmo.reflection.builders;
 
 import java.io.IOException;
-import java.lang.reflect.Modifier;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
@@ -17,11 +16,9 @@ public class SourceBuilder {
 			throw new IllegalStateException(e);
 		}
 	}
-	
+
 	final JClass<?> cls;
 	String source;
-	
-	
 
 	public SourceBuilder() {
 		this(null);
@@ -29,30 +26,23 @@ public class SourceBuilder {
 	public SourceBuilder(JClass<?> cls) {
 		this.cls = cls;
 	}
-	
 
 	public String build() {
 		source = getTemplate();
 		return source;
 	}
-	
-	
+
 	String buildConstruct(JClass<?> type) {
-		if(type.isEnum()) {
+		if (type.isEnum()) {
 			return SourceTemplates.CLASS_MODIFIER.format("enum");
-		}
-		else if(type.isInterface()) {
+		} else if (type.isInterface()) {
 			return SourceTemplates.CLASS_MODIFIER.format("interface");
-		}
-		else if(type.isAnnotation()){
+		} else if (type.isAnnotation()) {
 			return SourceTemplates.CLASS_MODIFIER.format("@interface");
-		}
-		else {
+		} else {
 			return SourceTemplates.CLASS_MODIFIER.format("class");
 		}
 	}
-	
-	
 
 	@Override
 	public String toString() {

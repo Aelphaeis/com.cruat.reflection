@@ -8,7 +8,7 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
-	<name>reflection</name>
+	<name>com.cruat.reflection</name>
 	<url>http://maven.apache.org</url>
 
 	<properties>

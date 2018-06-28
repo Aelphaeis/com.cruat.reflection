@@ -6,8 +6,6 @@ public class SourceBuilderTest {
 
 	@Test
 	public void test() {
-		SourceBuilder sb = new SourceBuilder();
-		System.out.println(sb.build());
 	}
 
 }

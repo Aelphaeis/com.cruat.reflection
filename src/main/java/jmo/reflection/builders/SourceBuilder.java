@@ -22,9 +22,6 @@ public class SourceBuilder {
 
 	final JClass<?> cls;
 
-	public SourceBuilder() {
-		this(null);
-	}
 	public SourceBuilder(JClass<?> cls) {
 		Objects.requireNonNull(cls);
 		this.cls = cls;

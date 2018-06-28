@@ -10,7 +10,7 @@ public class SourceBuilderTest {
 	@Test
 	public void test() {
 		JClass<SourceBuilder> cls = new JClassAdaptor<>(SourceBuilder.class);
-		System.out.println(new SourceBuilder(cls));
+		System.out.println(SourceBuilderUtils.buildInstanceFields(cls));
 	}
 	@Test(expected = NullPointerException.class)
 	public void ctor_null_NPE() {

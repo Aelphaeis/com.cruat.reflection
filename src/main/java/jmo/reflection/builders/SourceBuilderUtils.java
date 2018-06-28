@@ -12,6 +12,7 @@ import java.util.Set;
 
 import jmo.reflection.core.JClass;
 import jmo.reflection.core.JField;
+import jmo.reflection.core.JFieldAdaptor;
 import jmo.reflection.core.SourceTemplates;
 
 final class SourceBuilderUtils {
@@ -44,10 +45,10 @@ final class SourceBuilderUtils {
 	public static String buildModifiers(JClass<?> type) {
 		return buildModifiers(type.getModifiers());
 	}
-	
+
 	private static String buildModifiers(int mods) {
 		String result = Modifier.toString(mods);
-		return result.equals("")? result : result + " ";
+		return result.equals("") ? result : result + " ";
 	}
 
 	public static String buildImports(JClass<?> type) {
@@ -75,12 +76,31 @@ final class SourceBuilderUtils {
 	}
 
 	public static String buildInstanceFields(JClass<?> type) {
-		// TODO implement
-		return null;
+		StringBuilder builder = new StringBuilder();
+		for (Field field : type.getDeclaredFields()) {
+			JField jfield = new JFieldAdaptor(field);
+			builder.append(buildInstanceField(jfield));
+			builder.append("\n");
+		}
+
+		for (Field field : type.getFields()) {
+			JField jfield = new JFieldAdaptor(field);
+			builder.append(buildInstanceField(jfield));
+			builder.append("\n");
+		}
+		return builder.toString();
 	}
-	public static String buildInstanceFields(JField f) {
-		// TODO implement
-		return null;
+	public static String buildInstanceField(JField f) {
+		StringBuilder builder = new StringBuilder(f.getModifiers());
+		builder.append(f.getType().getSimpleName());
+		builder.append(' ');
+		builder.append(f.getName());
+		builder.append(';');
+		return builder.toString();
+	}
+
+	public static String buildModifiers(JField type) {
+		return buildModifiers(type.getModifiers());
 	}
 
 	public static String buildPackage(JClass<?> type) {

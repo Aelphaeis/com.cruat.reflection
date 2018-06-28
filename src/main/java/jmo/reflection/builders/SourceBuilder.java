@@ -2,6 +2,8 @@ package jmo.reflection.builders;
 
 import static jmo.reflection.builders.SourceBuilderUtils.*;
 
+import java.util.Objects;
+
 import jmo.reflection.core.JClass;
 
 public class SourceBuilder {
@@ -24,6 +26,7 @@ public class SourceBuilder {
 		this(null);
 	}
 	public SourceBuilder(JClass<?> cls) {
+		Objects.requireNonNull(cls);
 		this.cls = cls;
 	}
 

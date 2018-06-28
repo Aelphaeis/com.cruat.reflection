@@ -1,11 +1,25 @@
 package jmo.reflection.builders;
 
+import java.io.IOException;
 import java.lang.reflect.Modifier;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 
 import jmo.reflection.core.JClass;
 import jmo.reflection.core.SourceTemplates;
 
 final class SourceBuilderUtils {
+	
+	
+	private static final String TEMP_LOC = "src/main/resources/template.txt";
+	public static String getTemplate() {
+		try {
+			return new String(Files.readAllBytes(Paths.get(TEMP_LOC)));
+		} catch (IOException e) {
+			//should never happen.
+			throw new IllegalStateException(e);
+		}
+	}
 
 	public String buildConstruct(JClass<?> type) {
 		if (type.isEnum()) {

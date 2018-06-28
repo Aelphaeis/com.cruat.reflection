@@ -10,6 +10,7 @@ import java.lang.reflect.Type;
 import java.lang.reflect.TypeVariable;
 import java.net.URL;
 import java.security.ProtectionDomain;
+import java.util.Objects;
 
 import jmo.reflection.exceptions.ReflectionRuntimeException;
 
@@ -18,6 +19,7 @@ public class JClassAdaptor<T> implements JClass<T> {
 	final Class<T> cls;
 
 	public JClassAdaptor(Class<T> cls) {
+		Objects.requireNonNull(cls);
 		this.cls = cls;
 	}
 

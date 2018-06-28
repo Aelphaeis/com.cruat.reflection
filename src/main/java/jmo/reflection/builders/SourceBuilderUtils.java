@@ -11,6 +11,7 @@ import java.util.LinkedHashSet;
 import java.util.Set;
 
 import jmo.reflection.core.JClass;
+import jmo.reflection.core.JField;
 import jmo.reflection.core.SourceTemplates;
 
 final class SourceBuilderUtils {
@@ -83,6 +84,15 @@ final class SourceBuilderUtils {
 		}
 		builder.append('\n');
 		return builder.toString();
+	}
+	
+	public static String buildInstanceFields(JClass<?> type) {
+		//TODO implement
+		return null;
+	}
+	public static String buildInstanceFields(JField f) {
+		//TODO implement
+		return null;
 	}
 	
 	public static String buildPackage(JClass<?> type) {

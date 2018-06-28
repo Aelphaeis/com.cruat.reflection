@@ -1,5 +1,7 @@
 package jmo.reflection.builders;
 
+import static jmo.reflection.builders.SourceBuilderUtils.buildClassModifiers;
+import static jmo.reflection.builders.SourceBuilderUtils.buildConstruct;
 import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.when;
 
@@ -16,30 +18,65 @@ public class SourceBuilderUtilsTest {
 
 	@Mock
 	JClass<Object> type;
-	
+
 	@Before
 	public void setup() {
-		
+
 	}
-	
+
+	@Test
+	public void buildClassModifiers_public_public() {
+		when(type.getModifiers()).thenReturn(1);
+		assertEquals("public ", buildClassModifiers(type));
+	}
+	@Test
+	public void buildClassModifiers_protected_protected() {
+		when(type.getModifiers()).thenReturn(4);
+		assertEquals("protected ", buildClassModifiers(type));
+	}
+
+	@Test
+	public void buildClassModifiers_abstract_abstract() {
+		when(type.getModifiers()).thenReturn(1024);
+		assertEquals("abstract ", buildClassModifiers(type));
+	}
+
+	@Test
+	public void buildClassModifiers_final_final() {
+		when(type.getModifiers()).thenReturn(16);
+		assertEquals("final ", buildClassModifiers(type));
+	}
+
+	@Test
+	public void buildClassModifiers_strictfp_strictfp() {
+		when(type.getModifiers()).thenReturn(2048);
+		assertEquals("strictfp ", buildClassModifiers(type));
+	}
+
+	@Test
+	public void buildConstruct_nothing_blank() {
+		assertEquals("", buildClassModifiers(type));
+	}
+
 	@Test
 	public void buildConstruct_enum_enum() {
 		when(type.isEnum()).thenReturn(true);
-		assertEquals("enum ", SourceBuilderUtils.buildConstruct(type));
+		assertEquals("enum ", buildConstruct(type));
 	}
+
 	@Test
 	public void buildConstruct_interface_interface() {
 		when(type.isInterface()).thenReturn(true);
-		assertEquals("interface ", SourceBuilderUtils.buildConstruct(type));
+		assertEquals("interface ", buildConstruct(type));
 	}
 	@Test
 	public void buildConstruct_annotation_annotation() {
 		when(type.isAnnotation()).thenReturn(true);
-		assertEquals("@interface ", SourceBuilderUtils.buildConstruct(type));
+		assertEquals("@interface ", buildConstruct(type));
 	}
 
 	@Test
 	public void buildConstruct_default_class() {
-		assertEquals("class ", SourceBuilderUtils.buildConstruct(type));
+		assertEquals("class ", buildConstruct(type));
 	}
 }

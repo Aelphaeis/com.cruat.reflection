@@ -50,6 +50,9 @@ final class SourceBuilderUtils {
 		String result = Modifier.toString(mods);
 		return result.equals("") ? result : result + " ";
 	}
+	
+	//TODO constructors
+	//TODO methods
 
 	public static String buildImports(JClass<?> type) {
 		Method[] methods = type.getMethods();
@@ -80,7 +83,7 @@ final class SourceBuilderUtils {
 		LinkedHashSet<Field> fields = new LinkedHashSet<>();
 		fields.addAll(Arrays.asList(type.getFields()));
 		fields.addAll(Arrays.asList(type.getDeclaredFields()));
-		
+
 		for (Field field : fields) {
 			JField jfield = new JFieldAdaptor(field);
 			builder.append(buildInstanceField(jfield));
@@ -90,7 +93,8 @@ final class SourceBuilderUtils {
 		return builder.toString();
 	}
 	public static String buildInstanceField(JField f) {
-		StringBuilder builder = new StringBuilder(f.getModifiers());
+		//TODO Annotations for fields
+		StringBuilder builder = new StringBuilder(buildModifiers(f));
 		builder.append(f.getType().getSimpleName());
 		builder.append(' ');
 		builder.append(f.getName());

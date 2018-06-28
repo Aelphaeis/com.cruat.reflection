@@ -5,7 +5,7 @@ public enum SourceTemplates {
 	IMPORT("import %s;\n"),
 	CLASS_MODIFIER("%s "),
 	TYPE("%s {\n%s\n}"),
-	VARIABLE_MODIFER("%s "),
+	FIELD_MODIFER("%s "),
 	VARIABLE("%s %s;\n");
 	
 	String srcTemplate;

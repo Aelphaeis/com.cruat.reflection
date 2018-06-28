@@ -19,7 +19,7 @@ final class SourceBuilderUtils {
 	public static final Package LANG_PKG = String.class.getPackage();
 
 	private static final String TEMP_LOC = "src/main/resources/template.txt";
-	
+
 	public static String getTemplate() {
 		try {
 			return new String(Files.readAllBytes(Paths.get(TEMP_LOC)));
@@ -85,24 +85,27 @@ final class SourceBuilderUtils {
 		builder.append('\n');
 		return builder.toString();
 	}
-	
+
 	public static String buildInstanceFields(JClass<?> type) {
-		//TODO implement
+		// TODO implement
 		return null;
 	}
 	public static String buildInstanceFields(JField f) {
-		//TODO implement
+		// TODO implement
 		return null;
 	}
-	
+
+	public static String buildFieldModifiers(JField f) {
+		return Modifier.toString(f.getModifiers());
+	}
+
 	public static String buildPackage(JClass<?> type) {
 		return SourceTemplates.PACKAGE.format(type.getPackage().getName());
 	}
-	
+
 	public static String buildName(JClass<?> type) {
 		return type.getSimpleName();
 	}
-	
 
 	private SourceBuilderUtils() {
 		// utility

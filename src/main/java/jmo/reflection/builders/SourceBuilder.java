@@ -4,8 +4,8 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
-import jmo.reflection.pojos.JClass;
-import jmo.reflection.pojos.SourceTemplates;
+import jmo.reflection.core.JClass;
+import jmo.reflection.core.SourceTemplates;
 
 public class SourceBuilder {
 	private static final String TEMP_LOC = "src/main/resources/template.txt";

@@ -7,7 +7,7 @@ import java.util.Arrays;
 import java.util.LinkedHashSet;
 import java.util.Set;
 
-import jmo.reflection.pojos.SourceTemplates;
+import jmo.reflection.core.SourceTemplates;
 
 public class SourceUtils {
 	public static final Package PRIMATIVE_PKG = double.class.getPackage();

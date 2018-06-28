@@ -1,4 +1,4 @@
-package jmo.reflection.pojos;
+package jmo.reflection.core;
 
 public enum SourceTemplates {
 	PACKAGE("package %s;\n\n"),

@@ -1,4 +1,4 @@
-package jmo.reflection.pojos;
+package jmo.reflection.core;
 
 import java.lang.annotation.Annotation;
 

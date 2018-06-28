@@ -28,7 +28,12 @@ public class SourceBuilder {
 	}
 
 	public String build() {
-		return null;
+		StringBuilder builder = new StringBuilder();
+		builder.append(buildPackage(cls));
+		builder.append(buildImports(cls));
+		builder.append(buildClassModifiers(cls));
+		builder.append(buildConstruct(cls));
+		return builder.toString();
 	}
 
 	@Override

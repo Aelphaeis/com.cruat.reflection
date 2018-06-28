@@ -88,6 +88,11 @@ final class SourceBuilderUtils {
 	public static String buildPackage(JClass<?> type) {
 		return SourceTemplates.PACKAGE.format(type.getPackage().getName());
 	}
+	
+	public static String buildName(JClass<?> type) {
+		return type.getSimpleName();
+	}
+	
 
 	private SourceBuilderUtils() {
 		// utility

@@ -33,8 +33,11 @@ public class SourceBuilder {
 		builder.append(buildImports(cls));
 		builder.append(buildClassModifiers(cls));
 		builder.append(buildConstruct(cls));
+		builder.append(buildName(cls));
 		return builder.toString();
 	}
+	
+	
 
 	@Override
 	public String toString() {
